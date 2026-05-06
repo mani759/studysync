@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Environment files
+.env
+
+# VS Code
+.vscode/
+
+# Mac
+.DS_Store
+
+# Firebase secrets/config backups
+firebase-adminsdk.json
+
+# node modules (if future frontend build tools)
+node_modules/
