@@ -34,24 +34,33 @@ body, .sidebar, .stat-card, .history-item, .settings-section, .topbar, .tabs {
 .sidebar {
     display: flex;
     flex-direction: column;
-    width: 240px;
+    width: 280px;
     background: var(--bg);
     border-right: 1px solid var(--border);
     padding: 20px;
+    gap: 10px;
+
 }
 
 /* NAV */
 .sidebar a {
     display: block;
-    padding: 10px;
+    padding: 14px 16px;
+    font-size: 17px;
     color: #94a3b8;
     text-decoration: none;
     border-radius: 8px;
+    margin-top: 20px;
+    transition:all  0.3s ease;
 }
 
 .sidebar a:hover {
     background: rgba(255,255,255,0.1);
     color: white;
+    transform: scale(1.05);
+}
+.sidebar h2{
+    font-size: 28px;
 }
 @media(max-width:768px){
     .sidebar{
