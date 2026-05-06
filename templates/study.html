@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Study</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/study.css') }}">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+    {% include 'sidebar.html' %}
+
+    <!-- Main -->
+    <div class="main">
+
+        <div class="topbar">
+            <button id="menuBtn">☰</button>
+            <h1>Study</h1>
+        </div>
+
+        <div class="content">
+
+            <!-- TIMER -->
+            <div class="timer-container">
+
+                <h1 id="timer">00:30</h1>
+
+                <div class="progress-bar">
+                    <div id="progress"></div>
+                </div>
+                <p id="statusMsg"></p>
+
+                <div class="buttons">
+                    <button onclick="startTimer()">Start</button>
+                    <button onclick="pauseTimer()">Pause</button>
+                    <button onclick="resetTimer()">Reset</button>
+                </div>
+
+            </div>
+            
+    <div class="tabs">
+
+    <button class="tab-btn active" data-tab="stats">Statistics</button>
+    <button class="tab-btn" data-tab="settings">Settings</button>
+    <button class="tab-btn" data-tab="history">History</button>
+
+     </div>
+
+    <div class="tab-content active" id="stats">
+        <!-- Stats will go here -->
+        <div class="stats-grid">
+
+        <div class="stat-card">
+            <p>Current Session</p>
+            <h2 id="currentSession">00:00</h2>
+        </div>
+
+        <div class="stat-card">
+            <p>Total Study Time</p>
+            <h2 id="totalTime">0 min</h2>
+        </div> 
+
+        <div class="stat-card">
+            <p>Coins</p>
+            <h2 id="coins">0</h2>
+        </div>
+
+    </div>
+
+    </div>
+
+    <div class="tab-content" id="settings">
+
+        <div class="settings-section">
+
+        <h3>Study Preferences</h3>
+
+        <label>Study Time (minutes)</label>
+
+        <input type="range" id="studyTime" min="1" max="122" step="5" value="30">
+
+        <p id="timeDisplay">30 min</p>
+
+        <button id="savePreferences">Save</button>
+        <p id="msg" style="display:none; color: #3b82f6;">Saved!</p>
+
+    </div>
+  
+    </div>
+
+    <div class="tab-content" id="history">
+        <div id="historyList" class="history-list">
+        <p>Loading...</p>
+    </div>
+    </div>
+
+        </div>
+
+    </div>
+
+
+
+</div>
+<div id="toast">Study time updated</div>
+
+<!-- <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script> -->
+<script type="module" src="{{ url_for('static', filename='js/auth-check.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='js/stats.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='js/history.js') }}"></script>
+<script  type='module' src="{{ url_for('static', filename='js/timer.js') }}"></script>
+<script src="{{ url_for('static', filename='js/tabs.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='js/settings.js') }}"></script>
+
+
+</body>
+
+</html> 
