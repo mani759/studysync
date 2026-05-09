@@ -22,8 +22,17 @@ window.addEventListener("DOMContentLoaded", () => {
             time = minutes * 60;
             duration = time;
 
-            updateDisplay(); // refresh UI
+            // refresh UI
         }
+         else{
+
+            time = 30 * 60;
+
+            duration = time;
+
+        }
+
+         updateDisplay();
     });
 
 });

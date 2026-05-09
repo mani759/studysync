@@ -2,23 +2,50 @@
 /* ================= THEME SYSTEM ================= */
 
 /* DARK (default) */
-:root {
+:root{
+
     --bg: #020617;
+
     --text: #ffffff;
+
     --card: rgba(255,255,255,0.05);
+
     --border: rgba(255,255,255,0.1);
+
     --sidebar: #020617;
+
     --input-bg: #0f172a;
+
+    --primary: #3b82f6;
+
+    --secondary-text: #94a3b8;
+
+    --hover: rgba(255,255,255,0.08);
+
 }
 
+
 /* LIGHT MODE */
-body.light {
+body.light{
+
     --bg: #f5f5f5;
+
     --text: #111111;
+
     --card: #ffffff;
+
     --border: rgba(0,0,0,0.1);
+
     --sidebar: #ffffff;
+
     --input-bg: #ffffff;
+
+    --primary: #3b82f6;
+
+    --secondary-text: #64748b;
+
+    --hover: rgba(0,0,0,0.05);
+
 }
 /* SMOOTH TRANSITION */
 body, .sidebar, .stat-card, .history-item, .settings-section, .topbar, .tabs {

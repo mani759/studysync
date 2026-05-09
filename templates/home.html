@@ -3,10 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/layout.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
+   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Dashboard </h1>
+   <div class="app">
+
+    {% include 'sidebar.html' %}
+
+    <div class="main">
+
+        <div class="dashboard-header">
+            <h1>Dashboard</h1>
+        </div>
+<!-- stats cards........ -->
+        <div class="stats-grid">
+
+               <div class="stat-card">
+
+                <h3>Total Study Hours</h3>
+                <h1 id="totalHours">--</h1>
+                <p>Track your total focus time</p>
+                </div>
+
+            <div class="stat-card">
+
+                <h3>Daily Goal Progress</h3>
+                <h1 id="goalProgress">--</h1>
+                <p id ="textTimer">0m / 120m</p>
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Completed Sessions</h3>
+                <h1 id="completedSessions">--</h1>
+                <p>Total completed sessions</p>
+            </div>
+
+            <div class="stat-card">
+
+                <h3>Session Duration</h3>
+                <h1 id="sessionDuration">--</h1>
+                <p>Current timer setting</p>
+            </div>
+
+        </div>
+
+        <div class="dashboard-grid">
+<!-- chart box............ -->
+            <div class="chart-card">
+
+                <div class="card-header">
+                    <h2>Daily Study Sessions</h2>
+                </div>
+
+                <canvas id="studyChart"></canvas>
+
+            </div>
+<!-- trend card.............. -->
+            <div class="trend-card">
+
+                <h2>Study Duration Trend</h2>
+
+                <div class="empty-state">
+
+                    <p>Complete your first study session to see trends.</p>
+
+                    <a href="/study">
+                        <button>Start Studying</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 
@@ -18,5 +96,6 @@
 
 
     <script type="module" src="{{ url_for('static', filename='js/auth-check.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/home.js') }}"></script>
 </body>
 </html>
