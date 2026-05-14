@@ -12,7 +12,17 @@ body.light {
 body, .sidebar, .stat-card, .history-item, .settings-section, .topbar, .tabs {
     transition: all 0.3s ease;
 }
+.main{
 
+    margin-left:280px;
+
+    width:calc(100% - 280px);
+
+    min-height:100vh;
+
+    box-sizing:border-box;
+
+}
 /* BACKGROUND */
 body {
     background: var(--bg);
@@ -280,6 +290,18 @@ button{
     border-radius: 6px;
     border: none;
     cursor: pointer;
+    transition: 0.3S ease;
+}
+
+.settings-section button :hover{
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(59,130,246,0.4);
+}
+
+.settings-section button:active{
+
+    transform: scale(0.96);
+
 }
 
 /* SLIDER */

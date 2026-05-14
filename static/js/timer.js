@@ -68,7 +68,7 @@ function updateDisplay(){
 
 }
 
-async function saveSessions() {
+async function saveSessions(status) {
     try{
 
         let user = auth.currentUser;
@@ -79,6 +79,7 @@ async function saveSessions() {
 
        let sessionData={
         duration:duration,
+        status:status,
         date:new Date(),
         type:"study",
         userId: user.uid ,
@@ -110,7 +111,7 @@ function startTimer(){
             clearInterval(interval);
             interval=null;
             document.getElementById("statusMsg").innerText="Session completed";
-            saveSessions();
+            saveSessions("completed");
             return;
         }
 
@@ -133,6 +134,12 @@ function pauseTimer(){
 function resetTimer(){
     clearInterval(interval);
     interval=null;
+     if(time !== duration){
+
+        saveSessions("incomplete");
+
+    }
+
     time=duration;
     document.getElementById("statusMsg").innerText="";
     updateDisplay();
