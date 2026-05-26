@@ -169,19 +169,37 @@ function renderTask(task,id){
 
 
 
-    card.innerHTML=`
+    card.innerHTML = `
 
-        <h3>${task.title}</h3>
+    <h3>
 
-        <p>${task.description}</p>
+        <i data-lucide="book-open"></i>
+
+        ${task.title}
+
+    </h3>
+
+    <p>${task.description}</p>
+
+    <div class="task-meta">
 
         <span class="priority ${task.priority}">
+
+            <i data-lucide="flag"></i>
+
             ${task.priority}
+
         </span>
 
-        <p>${task.deadline}</p>
+        <small>
 
-    `;
+            <i data-lucide="calendar-days"></i>
+
+            ${task.deadline}
+
+        </small>
+
+    </div>`;
 
 
 
@@ -208,6 +226,7 @@ function renderTask(task,id){
     document
     .getElementById(target)
     .appendChild(card);
+    lucide.createIcons();
 
 }
 

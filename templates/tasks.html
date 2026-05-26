@@ -10,6 +10,7 @@
 
     <link rel="stylesheet"
     href="{{url_for('static',filename='css/tasks.css')}}">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
@@ -29,10 +30,10 @@
                 </p>
             </div>
 
-            <button id="openModalBtn">
-                + New Task
-            </button>
-
+           <button id="openModalBtn">
+            <i data-lucide="plus"></i>
+            New Task
+        </button>
         </div>
 
         <!-- stats -->
@@ -62,7 +63,8 @@
 
             <div class="column" data-status="backlog">
 
-                <h2>Backlog</h2>
+               <h2><i data-lucide="clipboard-list"></i>
+                Backlog</h2>
 
                 <div
                 id="backlogTasks"
@@ -72,7 +74,9 @@
 
             <div class="column" data-status="progress">
 
-                <h2>In Progress</h2>
+                <h2> <i data-lucide="circle-dashed"></i>
+                    In Progress
+                </h2>
 
                 <div
                 id="progressTasks"
@@ -82,7 +86,9 @@
 
             <div class="column" data-status="done">
 
-                <h2>Done</h2>
+                <h2><i data-lucide="check-circle-2"></i>
+                    Done
+                </h2>
 
                 <div
                 id="doneTasks"
@@ -123,6 +129,7 @@
         <div class="modal-actions">
 
             <button id="saveTaskBtn">
+                <i data-lucide="save"></i>
                 Save Task
             </button>
 

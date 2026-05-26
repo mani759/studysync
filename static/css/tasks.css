@@ -265,6 +265,34 @@ body{
 
     cursor:pointer;
 }
+
+h2,
+h3,
+button,
+.task-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.task-meta{
+
+    justify-content:space-between;
+
+    margin-top:12px;
+}
+
+svg{
+
+    width:18px;
+
+    height:18px;
+
+    stroke-width:2;
+}
 @keyframes fadeInUp{
 
     from{
