@@ -11,139 +11,6 @@
     from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-
-    // // =========================
-    // // AUTH CHECK
-    // // =========================
-
-    // auth.onAuthStateChanged(async(user)=>{
-
-    //     if(!user) return;
-
-    //     loadDashboard(user.uid);
-
-    // });
-
-
-
-    // // =========================
-    // // LOAD DASHBOARD
-    // // =========================
-
-    // async function loadDashboard(uid){
-
-    //     // =========================
-    //     // LOAD USER SETTINGS
-    //     // =========================
-
-    //     const userRef = doc(db,"users",uid);
-
-    //     const userSnap = await getDoc(userRef);
-
-    //     let studyTime = 25;
-
-    //     if(userSnap.exists()){
-
-    //         studyTime = userSnap.data().studyTime || 25;
-
-    //     }
-
-    //     document.getElementById("sessionDuration").innerText =
-    //         `${studyTime}m`;
-
-
-
-    //     // =========================
-    //     // LIVE SESSION QUERY
-    //     // =========================
-
-    //     const sessionRef = collection(db,"sessions");
-
-    //     const q = query(
-    //         sessionRef,
-    //         where("userId","==",uid)
-    //     );
-
-
-
-    //     // =========================
-    //     // LIVE REALTIME LISTENER
-    //     // =========================
-
-    //     onSnapshot(q,(snapshot)=>{
-
-    //         let totalMinutes = 0;
-
-    //         let completedSessions = 0;
-
-
-
-    //         snapshot.forEach((doc)=>{
-
-    //             const session = doc.data();
-
-
-
-    //             // count sessions
-
-    //             completedSessions++;
-
-
-
-    //             // convert seconds → minutes
-
-    //             totalMinutes += Math.floor(session.duration / 60);
-
-    //         });
-
-
-
-    //         // =========================
-    //         // UPDATE STATS
-    //         // =========================
-
-    //         document.getElementById("completedSessions").innerText =
-    //             completedSessions;
-
-    //         document.getElementById("totalHours").innerText =
-    //             `${totalMinutes}m`;
-
-
-
-    //         // =========================
-    //         // GOAL PROGRESS
-    //         // =========================
-
-    //         const goal = 120;
-
-    //         const progress =
-    //             Math.min((totalMinutes / goal) * 100,100);
-
-    //         document.getElementById("goalProgress").innerText =
-    //             `${Math.floor(progress)}%`;
-
-
-
-    //         // =========================
-    //         // UPDATE CHART
-    //         // =========================
-
-    //         createChart(completedSessions,0);
-
-    //     });
-
-    // }
-
-
-
-    // // =========================
-    // // CHART
-    // // =========================
-
-
-    // }
-
-
     auth.onAuthStateChanged( async(user)=>{
         if(!user){
             return;
@@ -185,7 +52,7 @@
                 if(session.status==="completed"){
                     completedSessions++;
                 }
-                else{
+                else if(session.status==="incomplete"){
                     incompleteSessions++;
                 }
 

@@ -25,6 +25,10 @@ def login():
 def study():
     return render_template("study.html")
 
+@app.route("/tasks")
+def tasks():
+    return render_template("tasks.html")
+
 
 
 

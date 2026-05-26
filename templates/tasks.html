@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+
+    <link rel="stylesheet"
+    href="{{url_for('static',filename='css/layout.css')}}">
+
+    <link rel="stylesheet"
+    href="{{url_for('static',filename='css/tasks.css')}}">
+</head>
+
+<body>
+
+<div class="app">
+
+    {% include 'sidebar.html' %}
+
+    <div class="main">
+
+        <div class="tasks-header">
+
+            <div>
+                <h1>To-Do Board</h1>
+                <p>
+                    Plan your study focus and track tasks.
+                </p>
+            </div>
+
+            <button id="openModalBtn">
+                + New Task
+            </button>
+
+        </div>
+
+        <!-- stats -->
+
+        <div class="task-stats">
+
+            <div class="stat-box">
+                <h3>Total</h3>
+                <h1 id="totalTasks">0</h1>
+            </div>
+
+            <div class="stat-box">
+                <h3>In Progress</h3>
+                <h1 id="progressCount">0</h1>
+            </div>
+
+            <div class="stat-box">
+                <h3>Done</h3>
+                <h1 id="doneCount">0</h1>
+            </div>
+
+        </div>
+
+        <!-- board -->
+
+        <div class="board">
+
+            <div class="column" data-status="backlog">
+
+                <h2>Backlog</h2>
+
+                <div
+                id="backlogTasks"
+                class="task-column"></div>
+
+            </div>
+
+            <div class="column" data-status="progress">
+
+                <h2>In Progress</h2>
+
+                <div
+                id="progressTasks"
+                class="task-column"></div>
+
+            </div>
+
+            <div class="column" data-status="done">
+
+                <h2>Done</h2>
+
+                <div
+                id="doneTasks"
+                class="task-column"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- modal -->
+
+<div id="taskModal" class="modal">
+
+    <div class="modal-box">
+
+        <h2>Create Task</h2>
+
+        <input id="taskTitle" placeholder="Task title">
+
+        <textarea id="taskDesc" placeholder="Description"></textarea>
+
+        <input type="date" id="taskDeadline">
+
+        <select id="taskPriority">
+
+            <option value="low">Low</option>
+
+            <option value="medium">Medium</option>
+
+            <option value="high">High</option>
+
+        </select>
+
+        <div class="modal-actions">
+
+            <button id="saveTaskBtn">
+                Save Task
+            </button>
+
+            <button id="closeModalBtn">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module"
+src="{{url_for('static',filename='js/tasks.js')}}"></script>
+
+</body>
+</html>
