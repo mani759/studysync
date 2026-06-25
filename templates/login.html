@@ -1,33 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
-</head>
-<body>
-    <div class="login">
-       <form id ="login-form">
-        
-       <label>EMAIL</label>
-       <input type="email" placeholder="enter your email" id="email-id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login • StudySync</title>
 
-       <label>PASSWORD</label>
-       <input type="password" placeholder="enter your password" id="password-id">
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/auth.css')}}"
+    />
+  </head>
 
-       <button type="submit" class="primary-btn" id="primary-btn-id">Login</button>
-        <p id="error-msg" style="color: red;"></p>
-       <p class="auth-switch">
-        Don't have an account.
-        <a href="{{url_for('signup')}}">Signup</a>
-       </p>
+  <body>
+    <div class="auth-container">
+      <div class="login">
+        <div class="auth-header">
+          <div class="logo">📘</div>
 
-</form>
+          <h1>StudySync</h1>
 
+          <h2>Welcome Back 👋</h2>
+
+          <p>Sign in to continue your study journey.</p>
+        </div>
+
+        <form id="login-form">
+          <label>Email</label>
+
+          <input type="email" id="email-id" placeholder="Enter your email" />
+
+          <label>Password</label>
+
+          <input
+            type="password"
+            id="password-id"
+            placeholder="Enter your password"
+          />
+
+          <button type="submit" id="primary-btn-id">Login</button>
+
+          <p id="error-msg"></p>
+
+          <p class="auth-switch">
+            Don't have an account?
+
+            <a href="{{url_for('signup')}}"> Create Account </a>
+          </p>
+        </form>
+      </div>
     </div>
-    <script type="module" src="{{url_for('static',filename='js/firebase.js')}}"></script>
-    <script type="module" src="{{url_for('static',filename='js/auth.js')}}"></script>
-    
-</body>
+
+    <script
+      type="module"
+      src="{{url_for('static',filename='js/firebase.js')}}"
+    ></script>
+
+    <script
+      type="module"
+      src="{{url_for('static',filename='js/auth.js')}}"
+    ></script>
+  </body>
 </html>

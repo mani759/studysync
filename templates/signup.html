@@ -1,35 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
-</head>
-<body>
-    <div class="sign-up">
-      <form id="signup-form"> 
-        <label >NAME</label>
-       <input type="text" placeholder="enter your name" id="name-id">
-       <label>EMAIL</label>
-       <input type="email" placeholder="enter your email" id="email-id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account • StudySync</title>
 
-       <label>PASSWORD</label>
-       <input type="password" placeholder="create your password" id="password-id">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/auth.css') }}"
+    />
+  </head>
 
-       <button type="submit" class="primary-btn" id="primary-btn-id">Signup</button>
-        <p id="error-msg" style="color: red; font-size: 14px;"></p>
-        
-       <p class="auth-switch">
-        Already have an account.
-        <a href="{{url_for('login')}}">login</a>
-       </p></form>
+  <body>
+    <div class="auth-container">
+      <div class="sign-up">
+        <div class="auth-header">
+          <div class="logo">📘</div>
 
+          <h1>StudySync</h1>
 
+          <h2>Create Account ✨</h2>
+
+          <p>Start your study journey with StudySync.</p>
+        </div>
+
+        <form id="signup-form">
+          <div class="input-group">
+            <label for="name-id">Full Name</label>
+
+            <div class="input-box">
+              <input
+                type="text"
+                id="name-id"
+                placeholder="Enter your full name"
+                autocomplete="name"
+              />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="email-id">Email Address</label>
+
+            <div class="input-box">
+              <input
+                type="email"
+                id="email-id"
+                placeholder="Enter your email"
+                autocomplete="email"
+              />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="password-id">Password</label>
+
+            <div class="input-box">
+              <input
+                type="password"
+                id="password-id"
+                placeholder="Create a password"
+                autocomplete="new-password"
+              />
+            </div>
+          </div>
+
+          <button type="submit" id="primary-btn-id">Create Account</button>
+
+          <p id="error-msg"></p>
+
+          <p class="auth-switch">
+            Already have an account?
+
+            <a href="{{ url_for('login') }}"> Login </a>
+          </p>
+        </form>
+      </div>
     </div>
 
-    <script  type="module" src="{{url_for('static',filename='js/firebase.js')}}"></script>
-    <script type="module" src="{{url_for('static',filename='js/auth.js')}}"></script>
-    
-</body>
+    <script
+      type="module"
+      src="{{url_for('static',filename='js/firebase.js')}}"
+    ></script>
+
+    <script
+      type="module"
+      src="{{url_for('static',filename='js/auth.js')}}"
+    ></script>
+  </body>
 </html>
